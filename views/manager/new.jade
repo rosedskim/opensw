@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+  h1 새 등록
+  
+  form(action='/manager', method='POST')
+    .form-group
+      label(for='name') 이름
+      input.form-control(name='name')
+    .form-group
+      label(for='price') 가격(1인기준)
+      input.form-control(type='text', id='price', name='price', placeholder='10000')
+    .form-group
+      label(for='number') 인원
+      select.form-control(name='number')
+        option(value='2') 2명이하
+        option(value='4', selected) 4명이하
+        option(value='6') 6명이하
+        option(value='8') 8명이하
+        option(value='10') 10명이하
+        option(value='12') 12명이하
+        option(value='14') 14명이하
+        option(value='100') 14명이상
+    .form-group
+      label(for='chk_info') 종류
+      input(type='radio', name='chk_info', value='밥')
+      | 밥
+      input(type='radio', name='chk_info', value='술')
+      | 술
+      input(type='radio', name='chk_info', value='카페')
+      | 카페
+    .form-group
+      label(for='content') 설명
+      textarea.form-control(name='content')
+    .form-action
+      a.btn.btn-default(href='javascript:window.history.back();') 뒤로 
+      | &nbsp;
+      button.btn.btn-primary(type='submit') 등록 
+  

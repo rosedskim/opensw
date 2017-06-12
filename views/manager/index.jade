@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1 건물등록
+
+  table.table
+    tr
+      th 이름
+      th 가격
+      th 인원
+      th 종류
+    each data in datas
+      tr
+        td
+          a(href='/manager/#{data._id}')= data.name
+        td= data.price
+        td= data.number
+        td= data.chk_info
+  a.btn.btn-primary(href='/manager/new') 등록

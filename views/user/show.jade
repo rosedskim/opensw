@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  h1 검색목록
+
+  table.table
+    tr
+      th 이름
+      th 가격
+      th 인원
+      th 종류
+    each data in datas
+      tr
+        td
+          a(href='/user/#{data._id}')= data.name
+        td= data.price
+        td= data.number
+        td= data.chk_info

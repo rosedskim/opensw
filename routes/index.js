@@ -1,5 +1,5 @@
 var express = require('express'),
-    todos = require('./todos'),
+    user = require('./user'),
     User = require('../models/User');
 var router = express.Router();
 
@@ -13,6 +13,6 @@ router.get('/signin', function(req, res, next) {
   res.render('signin');
 });
 
-router.use('/todos', todos);
+router.use('/user', user);
 
 module.exports = router;

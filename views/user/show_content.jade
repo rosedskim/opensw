@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  .container
+    h1.page-header= data.name
+    p
+    p.well(style='white-space:pre;')= data.content
+
+    a.btn.btn-default(href='javascript:window.history.back();') 뒤로

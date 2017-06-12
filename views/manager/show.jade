@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  .container
+    h1.page-header= data.name
+    p
+    p.well(style='white-space:pre;')= data.content
+
+    a.btn.btn-default(href='/manager') 목록
+    | 
+    a.btn.btn-default(href='/manager/#{data._id}/edit') 수정
+    | 
+    a.btn.btn-default(href='/manager/#{data._id}?_method=DELETE') 삭제

@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var fs=require('fs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -14,7 +15,8 @@ var configAuth = require('./config/auth');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var routeAuth = require('./routes/auth');
-
+var manager=require('./routes/manager');
+var user=require('./routes/user');
 var app = express();
 
 // view engine setup
@@ -60,6 +62,8 @@ app.use(function(req, res, next) {
 configAuth(passport);
 
 app.use('/', routes);
+app.use('/manager',manager);
+app.use('/user',user);
 app.use('/users', users);
 routeAuth(app, passport);
 
@@ -93,6 +97,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
+
 app.listen(3000,function(){
   console.log ('Connected 3000');
 })
